@@ -1,6 +1,4 @@
-type ExampleEntity @entity {
+type LatestHash @entity {
   id: ID!
-  count: BigInt!
-  caller: Bytes! # address
   hash: Bytes! # bytes32
 }

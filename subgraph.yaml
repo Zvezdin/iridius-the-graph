@@ -1,4 +1,4 @@
-specVersion: 0.0.1
+specVersion: 0.0.4
 schema:
   file: ./schema.graphql
 dataSources:
@@ -8,12 +8,13 @@ dataSources:
     source:
       address: "0x3A0831E2D474C0739DbC56C68d63780C3a818c80"
       abi: Contract
+      startBlock: 10822210
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.5
       language: wasm/assemblyscript
       entities:
-        - HashUpdated
+        - LatestHash
       abis:
         - name: Contract
           file: ./abis/Contract.json
