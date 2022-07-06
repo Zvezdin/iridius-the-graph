@@ -1,13 +1,12 @@
-import { BigInt } from "@graphprotocol/graph-ts"
-import { Contract, HashUpdated } from "../generated/Contract/Contract"
-import { LatestHash } from "../generated/schema"
+import { Contract, VersionUpdated } from "../generated/Contract/Contract"
+import { LatestVersion } from "../generated/schema"
 
-export function handleHashUpdated(event: HashUpdated): void {
-  let entity = new LatestHash("abc");
+export function handleVersionUpdated(event: VersionUpdated): void {
+  let entity = new LatestVersion(event.params.identifier);
+  entity.hash = event.params.hash;
 
   let contract = Contract.bind(event.address);
 
-  let newHash = contract.retrieve();
-  entity.hash = newHash;
+  assert(entity.hash == contract.acceptedVersions(event.params.identifier));
   entity.save();
 }

@@ -6,9 +6,9 @@ dataSources:
     name: Contract
     network: mbase
     source:
-      address: "0xaF21156e738259b2cc74Bf8D92DC68eF7E89Bd7C"
+      address: "0x1d9fBDc6f9959451e0F8D83d3F6182c816eE79c8"
       abi: Contract
-      startBlock: 2429574
+      startBlock: 2435236
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.5
@@ -19,6 +19,6 @@ dataSources:
         - name: Contract
           file: ./abis/Contract.json
       eventHandlers:
-        - event: HashUpdated(address,bytes32)
-          handler: handleHashUpdated
+        - event: VersionUpdated(bytes32,bytes32)
+          handler: handleVersionUpdated
       file: ./src/contract.ts

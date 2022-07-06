@@ -1,4 +1,4 @@
-type LatestHash @entity {
-  id: ID!
+type LatestVersion @entity {
+  id: Bytes!
   hash: Bytes! # bytes32
 }
